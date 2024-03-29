@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const baseUrl = 'meal-planner-skgh.vercel.app'
+
 const getAllMeals = (setMeal) => {
   axios.get("http://localhost:7000").then(({ data }) => {
     setMeal(data)
