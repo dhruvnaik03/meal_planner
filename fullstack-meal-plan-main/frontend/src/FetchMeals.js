@@ -3,20 +3,20 @@ import axios from "axios";
 const baseUrl = 'meal-planner-skgh.vercel.app'
 
 const getAllMeals = (setMeal) => {
-  axios.get("http://localhost:7000").then(({ data }) => {
+  axios.get("https://meal-planner-2-hh9h.onrender.com/").then(({ data }) => {
     setMeal(data)
   });
 };
 
 const addMeal = (title, setTitle, setMeal) => {
-  axios.post(`http://localhost:7000/saveMeals`, { title }).then(() => {
+  axios.post(`https://meal-planner-2-hh9h.onrender.com/saveMeals`, { title }).then(() => {
     setTitle("")
     getAllMeals(setMeal)
   });
 };
 
 const editMeal = (mealId, title, setTitle,setMeal, setEditing) => {
-  axios.put(`http://localhost:7000/editMeal`, { _id: mealId, title }).then(() => {
+  axios.put(`https://meal-planner-2-hh9h.onrender.com/editMeal`, { _id: mealId, title }).then(() => {
     setTitle("")
     setEditing(false)
     getAllMeals(setMeal)
@@ -24,7 +24,7 @@ const editMeal = (mealId, title, setTitle,setMeal, setEditing) => {
 }
 
 const deleteMeal = (mealId, setMeal) => {
-  axios.delete(`http://localhost:7000/deleteMeal`, {data : { _id: mealId }}).then(() => {
+  axios.delete(`https://meal-planner-2-hh9h.onrender.com/deleteMeal`, {data : { _id: mealId }}).then(() => {
     getAllMeals(setMeal)
   });
 }
